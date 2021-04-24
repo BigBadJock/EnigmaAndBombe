@@ -35,12 +35,12 @@ namespace Enigma
 
         public int Backward(int c)
         {
-            return encipher(c, this.rotorPosition, this.ringSetting, this.backwardWiring);
+            return Encipher(c, this.rotorPosition, this.ringSetting, this.backwardWiring);
         }
 
         public int Forward(int c)
         {
-            return encipher(c, this.rotorPosition, this.ringSetting, this.forwardWiring);
+            return Encipher(c, this.rotorPosition, this.ringSetting, this.forwardWiring);
         }
 
         public void Turnover()
@@ -48,7 +48,7 @@ namespace Enigma
             throw new NotImplementedException();
         }
 
-        protected int encipher(int c, int rotorPos, int ring, int[] mapping)
+        protected int Encipher(int c, int rotorPos, int ring, int[] mapping)
         {
             int shift = rotorPos - ring;
             return (mapping[(c + shift + 26) % 26] - shift + 26) % 26;
